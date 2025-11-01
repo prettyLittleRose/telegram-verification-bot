@@ -71,10 +71,11 @@ async def handle_new_message(event):
     
     try:
         bot.approve_chat_join_request(bot_settings['chat_id'], event.message.from_id.user_id)
+        logger.info(f'Approval Successful: {str(event.message.from_id.user_id)}')
+        
+        await client.send_message(event.message.from_id.user_id, '''
+    🤝 **Verification Successful:**
+
+    You have successfully been verified and can now access the group.''')
     except Exception as E:
         logger.error(f'Approval Error: {str(E)}')
-
-    await client.send_message(event.message.from_id.user_id, '''
-🤝 **Verification Successful:**
-
-You have successfully been verified and can now access the group.''')
