@@ -13,6 +13,10 @@ async def handle_new_message(event):
     terms = database.get_terms()
     countries = database.get_countries()
     settings = database.get_settings()
+    user = database.get_user(event.message.sender_id)
+    if user:
+        logger.error(f'User Already Exists: {str(event.message.sender_id)}')
+        return
     
     sender = await event.get_sender()
     user_info = await get_user_info(client, sender)
