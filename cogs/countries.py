@@ -144,6 +144,8 @@ def handle_toggle_country(call: CallbackQuery):
         return bot.answer_callback_query(call.id, 'State Mismatch')
     except InvalidMessageError:
         return bot.answer_callback_query(call.id, 'Message Mismatch')
+
+    bot.answer_callback_query(call.id)
     
     user_id = call.from_user.id
     params = get_params(user_id)
