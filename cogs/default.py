@@ -49,8 +49,7 @@ def handle_settings(message: Message):
         InlineKeyboardButton(mark('Premium', allow_no_premium), callback_data = 'toggle_allow_no_premium'),
         InlineKeyboardButton(mark('Check Bio', should_check_bio), callback_data = 'toggle_should_check_bio'),
         InlineKeyboardButton(mark('Check Channel Bio', should_check_channel), callback_data = 'toggle_should_check_channel'),
-        InlineKeyboardButton('‹ Back', callback_data = 'Home'),
-    ], row_widths = [2, 1, 1, 1])
+    ], row_widths = [2, 1, 1])
 
     bot.send_message(message.chat.id, '''
 🔧 <b>Settings</b>
@@ -99,8 +98,7 @@ def handle_toggle(call: CallbackQuery):
         InlineKeyboardButton(mark('Premium', allow_no_premium), callback_data = 'toggle_allow_no_premium'),
         InlineKeyboardButton(mark('Check Bio', should_check_bio), callback_data = 'toggle_should_check_bio'),
         InlineKeyboardButton(mark('Check Channel Bio', should_check_channel), callback_data = 'toggle_should_check_channel'),
-        InlineKeyboardButton('‹ Back', callback_data = 'Home'),
-    ], row_widths = [2, 1, 1, 1])
+    ], row_widths = [2, 1, 1])
 
     bot.edit_message_text(
         '''
